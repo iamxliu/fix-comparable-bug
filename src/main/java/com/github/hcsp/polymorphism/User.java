@@ -50,7 +50,7 @@ public class User implements Comparable<User> {
         int value = name.compareTo(o.name);
 
         if(value == 0){
-            return -1;
+            return id.compareTo(o.id);
         }
 
         return value;
