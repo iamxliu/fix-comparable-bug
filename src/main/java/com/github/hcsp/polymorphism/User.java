@@ -56,12 +56,13 @@ public class User implements Comparable<User> {
         if (name.compareTo(o.name) == 0) {
             if (this.id.equals(o.id)) {
                 return 0;
-            } else {
+            } else if (this.id > o.id) {
                 return 1;
             }
         } else {
             return name.compareTo(o.name);
         }
+        return -1;
     }
 
     public static void main(String[] args) {
