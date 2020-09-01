@@ -1,15 +1,21 @@
 package com.github.hcsp.polymorphism;
 
+import org.ietf.jgss.Oid;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.TreeSet;
 
 public class User implements Comparable<User> {
-    /** 用户ID，数据库主键，全局唯一 */
+    /**
+     * 用户ID，数据库主键，全局唯一
+     */
     private final Integer id;
 
-    /** 用户名 */
+    /**
+     * 用户名
+     */
     private final String name;
 
     public User(Integer id, String name) {
@@ -44,10 +50,16 @@ public class User implements Comparable<User> {
         return id != null ? id.hashCode() : 0;
     }
 
-    /** 老板说让我按照用户名排序 */
+    /**
+     * 老板说让我按照用户名排序
+     */
     @Override
     public int compareTo(User o) {
-        return name.compareTo(o.name);
+        if (id.equals(o.id)) {
+            return name.compareTo(o.name);
+        } else {
+            return id > o.id ? 1 : -1;
+        }
     }
 
     public static void main(String[] args) {
@@ -58,7 +70,7 @@ public class User implements Comparable<User> {
                         new User(1, "a"),
                         new User(2000, "a"));
         TreeSet<User> treeSet = new TreeSet<>(users);
-        // 为什么这里的输出是3？试着修复其中的bug
+        // 为什么这里的输出是3？试着修复其中的bug:通过修改compareTo
         System.out.println(treeSet.size());
     }
 }
