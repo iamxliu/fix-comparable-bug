@@ -1,7 +1,5 @@
 package com.github.hcsp.polymorphism;
 
-import org.ietf.jgss.Oid;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -55,10 +53,10 @@ public class User implements Comparable<User> {
      */
     @Override
     public int compareTo(User o) {
-        if (id.equals(o.id)) {
-            return name.compareTo(o.name);
+        if (name.compareTo(o.name) == 0) {
+            return id.compareTo(o.getId());
         } else {
-            return id > o.id ? 1 : -1;
+            return name.compareTo(o.getName());
         }
     }
 
