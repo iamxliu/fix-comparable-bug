@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.TreeSet;
 
-public class User implements Comparable<User> {
+public class
+User implements Comparable<User> {
     /** 用户ID，数据库主键，全局唯一 */
     private final Integer id;
 
@@ -47,6 +48,10 @@ public class User implements Comparable<User> {
     /** 老板说让我按照用户名排序 */
     @Override
     public int compareTo(User o) {
+
+        if(name.compareTo(o.name) == 0 ) {
+            return 1;
+        }
         return name.compareTo(o.name);
     }
 
