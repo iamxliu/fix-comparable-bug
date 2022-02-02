@@ -55,15 +55,16 @@ User implements Comparable<User> {
     @Override
     public int compareTo(User o) {
 
-        if (id == o.id) {
-            return name.compareTo(o.name);
-        }else {
-            if (name.compareTo(o.name) == 0) {
-                return 1;
-            }
-            return name.compareTo(o.name);
+        if (id != o.id) {
+            return id.compareTo(o.id);
+        }else if(name.compareTo(o.name)==0){
+            return 1;
         }
-    }
+        return name.compareTo(o.name);
+        }
+
+
+
 
     public static void main(String[] args) {
         List<User> users =
