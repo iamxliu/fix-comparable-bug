@@ -54,11 +54,20 @@ User implements Comparable<User> {
      */
     @Override
     public int compareTo(User o) {
-
-        if (id.compareTo(o.id)==0&&name.compareTo(o.name)==0) {
-            return 1;
+        int a = id.compareTo(o.id);
+        int b = name.compareTo(o.name);
+        if (a==0) {
+            if(b==0) {
+                return 0;
+            }
+            return b;
         }
-        return name.compareTo(o.name);
+
+           if (b==0) {
+               return 1;
+           }
+           return b;
+
         }
 
 
