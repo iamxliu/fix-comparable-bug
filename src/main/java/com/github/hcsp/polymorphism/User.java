@@ -52,6 +52,7 @@ public class User implements Comparable<User> {
 
         }
         return name.compareTo(o.name);
+
     }
 
     public static void main(String[] args) {
